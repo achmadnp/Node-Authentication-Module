@@ -11,15 +11,10 @@ const MONGODB_URI =
     `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_CLUSTER_NAME}.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}`
 
 
-// TODO CREATE GRAPQLSCHEMA
-
 
 const app = express();
 
-// TODO multer: file management: download upload
 
-
-// CORS
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader(
@@ -33,10 +28,8 @@ app.use((req, res, next) => {
     next();
 });
 
-// TODO create auth middleware
 app.use(auth);
 
-// TODO create graphql schema and resolver
 app.use('/graphql',
     graphqlHTTP({
         schema: graphqlSchema,
