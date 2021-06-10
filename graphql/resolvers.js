@@ -4,6 +4,8 @@ const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
 
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
+
 module.exports = {
     createUser: async function({ userInput }, req) {
 
@@ -69,7 +71,7 @@ module.exports = {
                 userId: user._id.toString(),
                 username: user.username
             },
-            'THISISREALLYREALLYSUPERDUPERSAFESECURITYKEY',
+            JWT_SECRET_KEY,
             {
                 expiresIn: '1h',
             }
