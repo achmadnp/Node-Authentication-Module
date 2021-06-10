@@ -1,2 +1,2 @@
 # admin
- Admind Server Side Enlightenize
+ Admin Server Side Enlightenize
